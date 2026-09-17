@@ -1,0 +1,332 @@
+
+<ContentPage
+        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="projekt.tablety"
+        BackgroundColor="#1B1B1B"
+        NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+
+
+        <Grid BackgroundColor="#1B1B1B">
+
+            <Ellipse
+                    WidthRequest="220"
+                    HeightRequest="220"
+                    Fill="#5B555C"
+                    Opacity="0.45"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Margin="-80,100,0,0" />
+
+            <Ellipse
+                    WidthRequest="250"
+                    HeightRequest="250"
+                    Fill="#46534D"
+                    Opacity="0.35"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    Margin="0,20,0,0" />
+
+            <Ellipse
+                    WidthRequest="220"
+                    HeightRequest="220"
+                    Fill="#625348"
+                    Opacity="0.40"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Margin="0,0,-80,0" />
+
+            <Ellipse
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    Fill="#4C5546"
+                    Opacity="0.35"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="-70,100,0,0" />
+
+        </Grid>
+
+
+        <!-- ============================= -->
+        <!-- GŁÓWNY UKŁAD -->
+        <!-- ============================= -->
+
+        <Grid
+                RowDefinitions="Auto,*"
+                Padding="25,25,25,30">
+            <Grid
+                    Grid.Row="0"
+                    ColumnDefinitions="*,Auto"
+                    Margin="0,0,0,20">
+
+                <Label
+                        Grid.Column="1"
+                        Text="Wróć  ←"
+                        FontSize="20"
+                        TextColor="White"
+                        VerticalOptions="Center">
+
+                    <Label.GestureRecognizers>
+                     <!--   <TapGestureRecognizer Tapped="OnBackClicked" />-->
+                    </Label.GestureRecognizers>
+
+                </Label>
+
+            </Grid>
+
+
+
+            <Border
+                    Grid.Row="1"
+                    WidthRequest="500"
+                    MaximumWidthRequest="600"
+                    BackgroundColor="#242424"
+                    StrokeThickness="0"
+                    Padding="30"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="3" />
+                </Border.StrokeShape>
+
+
+                <Grid
+                        RowDefinitions="Auto,Auto,*"
+                        RowSpacing="20">
+
+
+                    <!-- ========================= -->
+                    <!-- NAGŁÓWEK -->
+                    <!-- ========================= -->
+
+                    <Border
+                            Grid.Row="0"
+                            BackgroundColor="White"
+                            StrokeThickness="0"
+                            HorizontalOptions="Start"
+                            Padding="15,8">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="2" />
+                        </Border.StrokeShape>
+
+                        <HorizontalStackLayout
+                                Spacing="10">
+
+                            <!-- ikona tabletu -->
+
+                            <Border
+                                    WidthRequest="22"
+                                    HeightRequest="28"
+                                    Stroke="#111111"
+                                    StrokeThickness="2"
+                                    BackgroundColor="Transparent">
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3" />
+                                </Border.StrokeShape>
+
+                                <Ellipse
+                                        WidthRequest="3"
+                                        HeightRequest="3"
+                                        Fill="#111111"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="End"
+                                        Margin="0,0,0,3" />
+
+                            </Border>
+
+                            <Label
+                                    Text="Tablet nr #001"
+                                    FontSize="17"
+                                    FontAttributes="Bold"
+                                    TextColor="#222222"
+                                    VerticalOptions="Center" />
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+
+                    <!-- ========================= -->
+                    <!-- NAGŁÓWKI KOLUMN -->
+                    <!-- ========================= -->
+
+                    <Grid
+                            Grid.Row="1"
+                            ColumnDefinitions="1.35*,1.1*,0.7*,1.45*"
+                            ColumnSpacing="2">
+
+                        <Label
+                                Grid.Column="0"
+                                Text="Data"
+                                FontSize="13"
+                                TextColor="#AAAAAA"
+                                HorizontalTextAlignment="Center" />
+
+                        <Label
+                                Grid.Column="1"
+                                Text="Godziny"
+                                FontSize="13"
+                                TextColor="#AAAAAA"
+                                HorizontalTextAlignment="Center" />
+
+                        <Label
+                                Grid.Column="2"
+                                Text="Czas"
+                                FontSize="13"
+                                TextColor="#AAAAAA"
+                                HorizontalTextAlignment="Center" />
+
+                        <Label
+                                Grid.Column="3"
+                                Text="Użytkownik"
+                                FontSize="13"
+                                TextColor="#AAAAAA"
+                                HorizontalTextAlignment="Center" />
+
+                    </Grid>
+
+
+                    <!-- ========================= -->
+                    <!-- LISTA -->
+                    <!-- ========================= -->
+
+                    <CollectionView
+                            Grid.Row="2"
+                            ItemsSource="{Binding TabletHistory}"
+                            SelectionMode="None"
+                            VerticalScrollBarVisibility="Always">
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout
+                                    Orientation="Vertical"
+                                    ItemSpacing="3" />
+                        </CollectionView.ItemsLayout>
+
+
+                        <CollectionView.ItemTemplate>
+
+                            <DataTemplate>
+
+                                <Border
+                                        BackgroundColor="#4A4A4A"
+                                        Stroke="#242424"
+                                        StrokeThickness="2"
+                                        Padding="0">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="0" />
+                                    </Border.StrokeShape>
+
+                                    <Grid
+                                            ColumnDefinitions="1.35*,1.1*,0.7*,1.45*"
+                                            ColumnSpacing="0"
+                                            MinimumHeightRequest="55">
+
+                                        <!-- DATA -->
+
+                                        <Label
+                                                Grid.Column="0"
+                                                Text="{Binding Date}"
+                                                FontSize="14"
+                                                TextColor="#EEEEEE"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                                LineBreakMode="NoWrap" />
+
+                                        <!-- GODZINY -->
+
+                                        <Label
+                                                Grid.Column="1"
+                                                Text="{Binding Time}"
+                                                FontSize="14"
+                                                TextColor="#EEEEEE"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                                LineBreakMode="NoWrap" />
+
+                                        <!-- CZAS -->
+
+                                        <Label
+                                                Grid.Column="2"
+                                                Text="{Binding Duration}"
+                                                FontSize="14"
+                                                TextColor="#EEEEEE"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center" />
+
+                                        <!-- UŻYTKOWNIK -->
+
+                                        <Label
+                                                Grid.Column="3"
+                                                Text="{Binding UserName}"
+                                                FontSize="14"
+                                                TextColor="#EEEEEE"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                                LineBreakMode="TailTruncation" />
+
+                                    </Grid>
+
+                                </Border>
+
+                            </DataTemplate>
+
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- ============================= -->
+            <!-- LEWA STRZAŁKA -->
+            <!-- ============================= -->
+
+            <Label
+                    Grid.Row="1"
+                    Text="←"
+                    FontSize="80"
+                    FontAttributes="Bold"
+                    TextColor="#CCCCCC"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="-15,0,0,0">
+
+                <Label.GestureRecognizers>
+               <!--     <TapGestureRecognizer Tapped="OnPreviousTabletClicked" /> -->
+                </Label.GestureRecognizers>
+
+            </Label>
+
+
+
+            <Label
+                    Grid.Row="1"
+                    Text="→"
+                    FontSize="80"
+                    FontAttributes="Bold"
+                    TextColor="#CCCCCC"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Margin="0,0,-15,0">
+
+                <Label.GestureRecognizers>
+               <!--     <TapGestureRecognizer Tapped="OnNextTabletClicked" />-->
+                </Label.GestureRecognizers>
+
+            </Label>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
+
