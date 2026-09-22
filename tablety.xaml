@@ -29,6 +29,7 @@
                     VerticalOptions="Start"
                     Margin="0,20,0,0" />
 
+            
             <Ellipse
                     WidthRequest="220"
                     HeightRequest="220"

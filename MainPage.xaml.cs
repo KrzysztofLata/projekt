@@ -30,7 +30,7 @@ public partial class MainPage : ContentPage
     }
     private async void Register_Tap(object sender, TappedEventArgs e)
     {
-        await Navigation.PushAsync(new calendar());
+        await Navigation.PushAsync(new dokonaj_rejestru());
 
     }
     private async void Tablet_Tap(object sender, TappedEventArgs e)
