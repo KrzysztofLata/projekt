@@ -1,2 +1,2 @@
-[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "projekt")]
-[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "projekt.Pages")]
+[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "TabletyRejestrApp")]
+[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "TabletyRejestrApp.Pages")]

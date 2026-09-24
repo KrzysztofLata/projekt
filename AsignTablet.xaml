@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+    x:Class="TabletyRejestrApp.AsignTablet"
+    Title="AsignTablet"
+    Shell.NavBarIsVisible="False">
+
+    <Grid>
+
+        <!-- ================================================= -->
+        <!-- TŁO -->
+        <!-- ================================================= -->
+
+        <Image
+            Source="background_maui.jpg"
+            Aspect="AspectFill" />
+
+
+        <!-- ================================================= -->
+        <!-- PRZYCIEMNIENIE -->
+        <!-- ================================================= -->
+
+        <BoxView
+            BackgroundColor="#20000000" />
+
+
+        <!-- ================================================= -->
+        <!-- GRADIENT -->
+        <!-- ================================================= -->
+
+        <BoxView>
+
+            <BoxView.Background>
+
+                <LinearGradientBrush
+                    StartPoint="0,1"
+                    EndPoint="0,0">
+
+                    <GradientStop
+                        Color="#FF000000"
+                        Offset="0" />
+
+                    <GradientStop
+                        Color="#BB000000"
+                        Offset="0.45" />
+
+                    <GradientStop
+                        Color="#77000000"
+                        Offset="1" />
+
+                </LinearGradientBrush>
+
+            </BoxView.Background>
+
+        </BoxView>
+
+
+        <!-- ================================================= -->
+        <!-- GŁÓWNY UKŁAD -->
+        <!-- ================================================= -->
+
+        <Grid
+            Margin="85"
+            ColumnDefinitions=".3*,*,.3*">
+
+
+            <!-- ================================================= -->
+            <!-- BACK -->
+            <!-- ================================================= -->
+
+            <Button
+                Grid.Column="2"
+                Clicked="Back_Clicked"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Text="Back"
+                FontAttributes="Bold"
+                FontSize="25"
+                ImageSource="exit.png"
+                ContentLayout="Right,10"
+                HeightRequest="60"
+                WidthRequest="160"
+                Background="Transparent">
+
+                <Button.Shadow>
+
+                    <Shadow
+                        Brush="Black"
+                        Offset="10,10"
+                        Radius="20"
+                        Opacity="0.5" />
+
+                </Button.Shadow>
+
+            </Button>
+
+
+            <!-- ================================================= -->
+            <!-- PANEL -->
+            <!-- ================================================= -->
+
+            <Grid
+                Grid.Column="1">
+
+
+                <!-- TŁO PANELU -->
+
+                <Rectangle
+                    RadiusX="10"
+                    BackgroundColor="#111111">
+
+                    <Rectangle.Shadow>
+
+                        <Shadow
+                            Brush="Black"
+                            Offset="0,10"
+                            Radius="20"
+                            Opacity="0.5" />
+
+                    </Rectangle.Shadow>
+
+                </Rectangle>
+
+
+                <!-- ================================================= -->
+                <!-- ZAWARTOŚĆ PANELU -->
+                <!-- ================================================= -->
+
+                <Grid
+                    RowDefinitions="Auto,2,*"
+                    ColumnDefinitions=".5*,.5*">
+
+
+                    <!-- ================================================= -->
+                    <!-- INFORMACJE O LEKCJI -->
+                    <!-- ================================================= -->
+
+                    <HorizontalStackLayout
+                        Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="Center"
+                        Spacing="50"
+                        Padding="10,30,10,10">
+
+
+                        <!-- KLASA -->
+
+                        <Border
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 2"
+                            Padding="35,15">
+
+                            <Label
+                                x:Name="ClassLabel"
+                                Text="Klasa: ---"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+
+                        </Border>
+
+
+                        <!-- CZAS -->
+
+                        <Border
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 2"
+                            Padding="35,15">
+
+                            <Label
+                                x:Name="TimeLabel"
+                                Text="Czas: --:-- - --:--"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+
+                        </Border>
+
+                    </HorizontalStackLayout>
+
+
+                    <!-- ================================================= -->
+                    <!-- LINIA -->
+                    <!-- ================================================= -->
+
+                    <Rectangle
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White" />
+
+
+                    <!-- ================================================= -->
+                    <!-- LEWA STRONA -->
+                    <!-- ================================================= -->
+
+                    <Grid
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Padding="25"
+                        RowDefinitions="Auto,Auto,Auto,*"
+                        RowSpacing="20">
+
+
+                        <!-- UCZEŃ -->
+
+                        <VerticalStackLayout
+                            Grid.Row="0"
+                            Spacing="10">
+
+                            <Label
+                                Text="Uczeń"
+                                TextColor="#AAAAAA"
+                                FontSize="18"
+                                HorizontalOptions="Center" />
+
+                            <Picker
+                                x:Name="StudentPicker"
+                                Title="Wybierz ucznia"
+                                BackgroundColor="White"
+                                TextColor="Black"
+                                TitleColor="Gray"
+                                HeightRequest="50" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- TABLET -->
+
+                        <VerticalStackLayout
+                            Grid.Row="1"
+                            Spacing="10">
+
+                            <Label
+                                Text="Tablet"
+                                TextColor="#AAAAAA"
+                                FontSize="18"
+                                HorizontalOptions="Center" />
+
+                            <Border
+                                BackgroundColor="White"
+                                Padding="15">
+
+                                <Label
+                                    x:Name="ScannedTabletLabel"
+                                    Text="Nie zeskanowano tabletu"
+                                    TextColor="Black"
+                                    HorizontalOptions="Center"
+                                    FontSize="17" />
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- SKANER -->
+
+                        <VerticalStackLayout
+                            Grid.Row="2"
+                            Spacing="10">
+
+                            <Button
+                                x:Name="ScanButton"
+                                Clicked="ScanButton_Clicked"
+                                WidthRequest="180"
+                                CornerRadius="5"
+                                Text="Zeskanuj QR"
+                                BackgroundColor="LightCyan"
+                                Padding="15,5"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                TextColor="Black"
+                                HorizontalOptions="Center" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- DODAJ -->
+
+                        <Button
+                            Grid.Row="3"
+                            x:Name="AddButton"
+                            Clicked="AddButton_Clicked"
+                            WidthRequest="180"
+                            HeightRequest="55"
+                            CornerRadius="5"
+                            Text="Dodaj"
+                            BackgroundColor="GreenYellow"
+                            Padding="15,5"
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            TextColor="Black"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End" />
+
+                    </Grid>
+
+
+                    <!-- ================================================= -->
+                    <!-- PRAWA STRONA -->
+                    <!-- ================================================= -->
+
+                    <Grid
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        BackgroundColor="#333333"
+                        Padding="25"
+                        RowDefinitions="Auto,*,Auto">
+
+
+                        <!-- NAGŁÓWEK -->
+
+                        <Label
+                            Grid.Row="0"
+                            Text="Przyporządkowane tablety"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Margin="0,0,0,15" />
+
+
+                        <!-- ================================================= -->
+                        <!-- LISTA PRZYPISAŃ -->
+                        <!-- ================================================= -->
+
+                        <ScrollView
+                            Grid.Row="1">
+
+                            <VerticalStackLayout
+                                x:Name="AssignmentsLayout"
+                                Spacing="15">
+
+                            </VerticalStackLayout>
+
+                        </ScrollView>
+
+
+                        <!-- ================================================= -->
+                        <!-- ZAKOŃCZ REJESTR -->
+                        <!-- ================================================= -->
+
+                        <Button
+                            Grid.Row="2"
+                            x:Name="FinishButton"
+                            Clicked="ZakonczRejestr_Clicked"
+                            Text="Zakończ rejestr"
+                            WidthRequest="220"
+                            HeightRequest="55"
+                            CornerRadius="8"
+                            BackgroundColor="GreenYellow"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Margin="0,20,0,5">
+
+                            <Button.Shadow>
+
+                                <Shadow
+                                    Brush="Black"
+                                    Offset="0,5"
+                                    Radius="10"
+                                    Opacity="0.4" />
+
+                            </Button.Shadow>
+
+                        </Button>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
