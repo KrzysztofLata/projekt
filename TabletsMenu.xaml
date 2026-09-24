@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TabletyRejestrApp.TabletsMenu"
+             Title="TabletsMenu"
+             Shell.NavBarIsVisible="False">
+    <Grid VerticalOptions="Center" HorizontalOptions="Center">
+
+
+        <!-- tło, przeniesc do soobnej kontorlki-->
+        <Image
+        Source="background_maui.jpg"
+        Aspect="AspectFill" />
+
+        <!-- delikatne przyciemnienie -->
+        <BoxView
+        BackgroundColor="#20000000" />
+
+        <!-- gradient -->
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush
+                StartPoint="0,1"
+                EndPoint="0,0">
+
+                    <GradientStop
+                    Color="#FF000000"
+                    Offset="0" />
+
+                    <GradientStop
+                    Color="#BB000000"
+                    Offset="0.45" />
+
+                    <GradientStop
+                    Color="#77000000"
+                    Offset="1" />
+
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <Grid Margin="85" ColumnDefinitions=".3*,*, .3*">
+            <Button Grid.Column="2"
+                    Clicked="Back_Clicked"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    Text="Back"
+                    FontAttributes="Bold"
+                    FontSize="25"
+                    ImageSource="exit.png"
+                    ContentLayout="Right,10"
+                    HeightRequest="60"
+                    WidthRequest="160"
+                    Background="Transparent"
+                >
+                <Button.Shadow>
+                    <Shadow
+                        Brush="Black"
+                        Offset="10,10"
+                        Radius="20"
+                        Opacity="0.5" />
+                </Button.Shadow>
+            </Button>
+            
+            <ScrollView Grid.Column="1">
+                <FlexLayout 
+                    x:Name="TabletsLayout"
+                    Direction="Row"
+                    Wrap="Wrap"
+                    JustifyContent="Center"
+                    AlignItems="Start"
+                    AlignContent="Center"
+                    Padding="20">
+
+                </FlexLayout>
+            </ScrollView>
+            
+        </Grid>
+        
+        <Rectangle BackgroundColor="Transparent" Grid.Row="2"></Rectangle>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TabletyRejestrApp.SetUpRecord"
+    Title="SetUpRecord"
+    Shell.NavBarIsVisible="False">
+
+    <Grid>
+
+        <!-- TŁO -->
+        <Image
+            Source="background_maui.jpg"
+            Aspect="AspectFill" />
+
+        <!-- DELIKATNE PRZYCIEMNIENIE -->
+        <BoxView
+            BackgroundColor="#20000000" />
+
+        <!-- GRADIENT -->
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush
+                    StartPoint="0,1"
+                    EndPoint="0,0">
+
+                    <GradientStop
+                        Color="#FF000000"
+                        Offset="0" />
+
+                    <GradientStop
+                        Color="#BB000000"
+                        Offset="0.45" />
+
+                    <GradientStop
+                        Color="#77000000"
+                        Offset="1" />
+
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+
+        <!-- GŁÓWNY UKŁAD -->
+        <Grid
+            Margin="85"
+            ColumnDefinitions=".3*,*,.3*">
+
+
+            <!-- PRZYCISK BACK -->
+            <Button
+                Grid.Column="2"
+                Clicked="Back_Clicked"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Text="Back"
+                FontAttributes="Bold"
+                FontSize="25"
+                ImageSource="exit.png"
+                ContentLayout="Right,10"
+                HeightRequest="60"
+                WidthRequest="160"
+                Background="Transparent">
+
+                <Button.Shadow>
+                    <Shadow
+                        Brush="Black"
+                        Offset="10,10"
+                        Radius="20"
+                        Opacity="0.5" />
+                </Button.Shadow>
+
+            </Button>
+
+
+            <!-- PANEL -->
+            <Grid Grid.Column="1">
+
+                <Rectangle
+                    RadiusX="10"
+                    BackgroundColor="#111111">
+
+                    <Rectangle.Shadow>
+                        <Shadow
+                            Brush="Black"
+                            Offset="0,10"
+                            Radius="20"
+                            Opacity="0.5" />
+                    </Rectangle.Shadow>
+
+                </Rectangle>
+
+
+                <!-- ZAWARTOŚĆ PANELU -->
+                <Grid
+                    RowSpacing="20"
+                    Padding="60"
+                    RowDefinitions="Auto,Auto,*,Auto">
+
+
+                    <!-- KLASA -->
+                    <VerticalStackLayout
+                        Grid.Row="0"
+                        Spacing="8"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            Text="Wybierz klasę"
+                            TextColor="White"
+                            FontSize="18"
+                            HorizontalOptions="Start" />
+
+                        <Picker
+                            x:Name="ClassPicker"
+                            Title="Wybierz klasę"
+                            TitleColor="White"
+                            TextColor="Black"
+                            BackgroundColor="White"
+                            WidthRequest="250"
+                            HeightRequest="50"
+                            HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+
+                    <!-- GODZINY -->
+                    <VerticalStackLayout
+                        Grid.Row="1"
+                        Padding="50,10"
+                        HorizontalOptions="Center"
+                        Spacing="15">
+
+
+                        <!-- POCZĄTEK -->
+                        <VerticalStackLayout>
+
+                            <Label
+                                Text="Początek lekcji"
+                                TextColor="White"
+                                HorizontalOptions="Start" />
+
+                            <TimePicker
+                                x:Name="StartTimePicker"
+                                BackgroundColor="White"
+                                Format="HH:mm"
+                                Time="08:00"
+                                WidthRequest="250" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- KONIEC -->
+                        <VerticalStackLayout>
+
+                            <Label
+                                Text="Zakończenie lekcji"
+                                TextColor="White"
+                                HorizontalOptions="Start" />
+
+                            <TimePicker
+                                x:Name="EndTimePicker"
+                                BackgroundColor="White"
+                                Format="HH:mm"
+                                Time="08:45"
+                                WidthRequest="250" />
+
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+
+
+                    <!-- PUSTA PRZESTRZEŃ -->
+                    <BoxView
+                        Grid.Row="2"
+                        BackgroundColor="Transparent" />
+
+
+                    <!-- UTWÓRZ -->
+                    <Button
+                        x:Name="CreateButton"
+                        Grid.Row="3"
+                        Clicked="Utworz_Clicked"
+                        WidthRequest="200"
+                        HeightRequest="60"
+                        CornerRadius="5"
+                        Text="Utwórz"
+                        BackgroundColor="LightCyan"
+                        Padding="30,10"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        TextColor="Black"
+                        HorizontalOptions="Center" />
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
