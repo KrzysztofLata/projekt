@@ -17,7 +17,10 @@
         {
             await Shell.Current.GoToAsync(nameof(TabletsMenu));
         }
-
+        private async void BazaUczniow_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(StudentsDatabase));
+        }
         private void OnExit_Clicked(object sender, EventArgs e)
         {
             Application.Current?.Quit();

@@ -108,7 +108,7 @@
             <HorizontalStackLayout Grid.Row="4" HorizontalOptions="End" Spacing="40">
                 <HorizontalStackLayout Spacing="10">
                     <Image Source="people.png" HeightRequest="30"></Image>
-                    <Button  Text="Baza uczniów" BackgroundColor="White" Padding="30, 10" FontAttributes="Bold" FontSize="15" TextColor="Black"></Button>
+                    <Button Clicked="BazaUczniow_Clicked"  Text="Baza uczniów" BackgroundColor="White" Padding="30, 10" FontAttributes="Bold" FontSize="15" TextColor="Black"></Button>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout Spacing="10">

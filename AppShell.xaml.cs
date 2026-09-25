@@ -10,6 +10,7 @@
             Routing.RegisterRoute(nameof(TabletsMenu), typeof(TabletsMenu));
             Routing.RegisterRoute(nameof(InvestigateTablet), typeof(InvestigateTablet));
             Routing.RegisterRoute(nameof(QrScannerPage), typeof(QrScannerPage));
+            Routing.RegisterRoute(nameof(StudentsDatabase), typeof(StudentsDatabase));
 
 
         }

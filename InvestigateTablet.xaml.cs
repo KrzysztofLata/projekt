@@ -94,7 +94,8 @@ public partial class InvestigateTablet : ContentPage
             // Tworzenie wpisów historii
             foreach (var usage in tabletHistory)
             {
-                var user = users.FirstOrDefault(x => x.Id == usage.Id);
+                var user = users.FirstOrDefault(x => x.Id == usage.StudentId);
+
 
                 string userName;
 

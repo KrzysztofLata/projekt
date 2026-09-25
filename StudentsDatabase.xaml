@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TabletyRejestrApp.StudentsDatabase"
+             Title="Baza uczniów"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+
+        <!-- ========================================= -->
+        <!-- TŁO -->
+        <!-- ========================================= -->
+
+        <Image
+            Source="background_maui.jpg"
+            Aspect="AspectFill" />
+
+        <BoxView
+            BackgroundColor="#40000000" />
+
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush
+                    StartPoint="0,1"
+                    EndPoint="0,0">
+
+                    <GradientStop
+                        Color="#FF000000"
+                        Offset="0" />
+
+                    <GradientStop
+                        Color="#BB000000"
+                        Offset="0.45" />
+
+                    <GradientStop
+                        Color="#55000000"
+                        Offset="1" />
+
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+
+        <!-- ========================================= -->
+        <!-- GŁÓWNY UKŁAD -->
+        <!-- ========================================= -->
+
+        <Grid
+            Margin="50"
+            RowDefinitions="Auto,*"
+            RowSpacing="20">
+
+
+            <!-- ===================================== -->
+            <!-- NAGŁÓWEK -->
+            <!-- ===================================== -->
+
+            <Grid
+                Grid.Row="0"
+                ColumnDefinitions="*,Auto">
+
+                <Label
+                    Text="BAZA UCZNIÓW"
+                    TextColor="White"
+                    FontSize="36"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center" />
+
+                <Button
+                    Grid.Column="1"
+                    Clicked="Back_Clicked"
+                    Text="Back"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    ImageSource="exit.png"
+                    ContentLayout="Right,10"
+                    HeightRequest="60"
+                    WidthRequest="160"
+                    BackgroundColor="Transparent">
+
+                    <Button.Shadow>
+                        <Shadow
+                            Brush="Black"
+                            Offset="10,10"
+                            Radius="20"
+                            Opacity="0.5" />
+                    </Button.Shadow>
+
+                </Button>
+
+            </Grid>
+
+
+            <!-- ===================================== -->
+            <!-- GŁÓWNA ZAWARTOŚĆ -->
+            <!-- ===================================== -->
+
+            <Grid
+                Grid.Row="1"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="25">
+
+
+                <!-- ================================= -->
+                <!-- LEWY PANEL -->
+                <!-- ================================= -->
+
+                <Border
+                    Grid.Column="0"
+                    BackgroundColor="#DD202020"
+                    Stroke="#55FFFFFF"
+                    StrokeThickness="1"
+                    Padding="25">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+
+
+                    <!-- SCROLL -->
+                    <ScrollView>
+
+                        <VerticalStackLayout
+                            Spacing="15">
+
+
+                            <!-- ========================= -->
+                            <!-- UTWÓRZ KLASĘ -->
+                            <!-- ========================= -->
+
+                            <Label
+                                Text="UTWÓRZ KLASĘ"
+                                TextColor="White"
+                                FontSize="28"
+                                FontAttributes="Bold" />
+
+                            <Label
+                                Text="Podaj nazwę nowej klasy:"
+                                TextColor="#CCCCCC"
+                                FontSize="17" />
+
+                            <Entry
+                                x:Name="KlasaEntry"
+                                Placeholder="np. 5TP"
+                                PlaceholderColor="#AAAAAA"
+                                TextColor="White"
+                                FontSize="20"
+                                HeightRequest="55"
+                                BackgroundColor="#44000000" />
+
+
+                            <Button
+                                Text="UTWÓRZ KLASĘ"
+                                Clicked="AddClass_Clicked"
+                                BackgroundColor="#388E3C"
+                                TextColor="White"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                HeightRequest="60"
+                                CornerRadius="10" />
+
+
+                            <BoxView
+                                HeightRequest="1"
+                                BackgroundColor="#55FFFFFF"
+                                Margin="0,15" />
+
+
+                            <!-- ========================= -->
+                            <!-- DODAJ UCZNIA -->
+                            <!-- ========================= -->
+
+                            <Label
+                                Text="DODAJ UCZNIA"
+                                TextColor="White"
+                                FontSize="28"
+                                FontAttributes="Bold" />
+
+                            <Label
+                                Text="Imię:"
+                                TextColor="#CCCCCC"
+                                FontSize="17" />
+
+                            <Entry
+                                x:Name="ImieEntry"
+                                Placeholder="Imię ucznia"
+                                PlaceholderColor="#AAAAAA"
+                                TextColor="White"
+                                FontSize="20"
+                                HeightRequest="55"
+                                BackgroundColor="#44000000" />
+
+
+                            <Label
+                                Text="Nazwisko:"
+                                TextColor="#CCCCCC"
+                                FontSize="17" />
+
+                            <Entry
+                                x:Name="NazwiskoEntry"
+                                Placeholder="Nazwisko ucznia"
+                                PlaceholderColor="#AAAAAA"
+                                TextColor="White"
+                                FontSize="20"
+                                HeightRequest="55"
+                                BackgroundColor="#44000000" />
+
+
+                            <Label
+                                Text="Klasa:"
+                                TextColor="#CCCCCC"
+                                FontSize="17" />
+
+                            <Picker
+                                x:Name="KlasaPicker"
+                                Title="Wybierz klasę"
+                                TitleColor="#AAAAAA"
+                                TextColor="White"
+                                FontSize="20"
+                                HeightRequest="55"
+                                BackgroundColor="#44000000" />
+
+
+                            <Button
+                                Text="DODAJ UCZNIA"
+                                Clicked="AddStudent_Clicked"
+                                BackgroundColor="#1976D2"
+                                TextColor="White"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                HeightRequest="60"
+                                CornerRadius="10" />
+
+                        </VerticalStackLayout>
+
+                    </ScrollView>
+
+                </Border>
+
+
+                <!-- ================================= -->
+                <!-- PRAWY PANEL -->
+                <!-- ================================= -->
+
+                <Border
+                    Grid.Column="1"
+                    BackgroundColor="#DD202020"
+                    Stroke="#55FFFFFF"
+                    StrokeThickness="1"
+                    Padding="25">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+
+
+                    <Grid
+                        RowDefinitions="Auto,*"
+                        RowSpacing="15">
+
+
+                        <Label
+                            Text="LISTA UCZNIÓW"
+                            TextColor="White"
+                            FontSize="28"
+                            FontAttributes="Bold" />
+
+
+                        <CollectionView
+                            Grid.Row="1"
+                            x:Name="StudentsCollectionView"
+                            SelectionMode="None">
+
+
+                            <CollectionView.EmptyView>
+
+                                <VerticalStackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Spacing="10">
+
+                                    <Label
+                                        Text="Brak uczniów"
+                                        TextColor="White"
+                                        FontSize="24"
+                                        HorizontalTextAlignment="Center" />
+
+                                    <Label
+                                        Text="Dodaj pierwszego ucznia."
+                                        TextColor="#AAAAAA"
+                                        FontSize="17"
+                                        HorizontalTextAlignment="Center" />
+
+                                </VerticalStackLayout>
+
+                            </CollectionView.EmptyView>
+
+
+                            <CollectionView.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <Border
+                                        Margin="0,5"
+                                        Padding="15"
+                                        BackgroundColor="#33111111"
+                                        Stroke="#33FFFFFF">
+
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" />
+                                        </Border.StrokeShape>
+
+
+                                        <Grid
+                                            ColumnDefinitions="*,Auto"
+                                            ColumnSpacing="10">
+
+
+                                            <VerticalStackLayout>
+
+                                                <Label
+                                                    Text="{Binding Imie}"
+                                                    TextColor="White"
+                                                    FontSize="20"
+                                                    FontAttributes="Bold" />
+
+                                                <Label
+                                                    Text="{Binding Nazwisko}"
+                                                    TextColor="#DDDDDD"
+                                                    FontSize="18" />
+
+                                                <Label
+                                                    Text="{Binding Klasa}"
+                                                    TextColor="#90CAF9"
+                                                    FontSize="16" />
+
+                                            </VerticalStackLayout>
+
+
+                                            <Button
+                                                Grid.Column="1"
+                                                Text="Usuń"
+                                                Clicked="DeleteStudent_Clicked"
+                                                CommandParameter="{Binding .}"
+                                                BackgroundColor="#B71C1C"
+                                                TextColor="White"
+                                                WidthRequest="85"
+                                                HeightRequest="45" />
+
+                                        </Grid>
+
+                                    </Border>
+
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

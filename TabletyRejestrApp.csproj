@@ -80,6 +80,9 @@
 	  <MauiXaml Update="SetUpRecord.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="StudentsDatabase.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="TabletsMenu.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
